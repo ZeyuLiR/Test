@@ -1,0 +1,27 @@
+name: testAction
+
+on:
+  push:
+    branches:
+      - test
+  pull_request:
+    branches:
+      - test
+
+jobs:
+  my-job:
+    name: my-job
+    runs-on: ubuntu-latest
+    steps:
+      # ...
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+
+      # run any `bun` or `bunx` command
+      - run: bun install
+      - run: bun index.ts
+      
+      - name: Lint Code Base
+        uses: github/super-linter@v3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
