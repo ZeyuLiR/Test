@@ -20,8 +20,8 @@ jobs:
       # run any `bun` or `bunx` command
       - run: bun install
       - run: bun index.ts
-      
+
       - name: Lint Code Base
-        uses: github/super-linter@v3
+        uses: github/super-linter@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
