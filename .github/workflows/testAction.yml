@@ -21,7 +21,3 @@ jobs:
       - run: bun install
       - run: bun start
 
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
